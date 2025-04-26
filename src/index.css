@@ -1,0 +1,155 @@
+/* 基础样式设置 - 这些样式会应用到整个网页 */
+body {
+  margin: 0;  /* 移除body的默认外边距，使页面紧贴浏览器边缘 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;  /* 设置网页的默认字体，优先使用系统字体，确保在不同操作系统上都有良好的显示效果 */
+  -webkit-font-smoothing: antialiased;  /* 在苹果设备上让字体显示更清晰 */
+  -moz-osx-font-smoothing: grayscale;  /* 在苹果设备上让字体显示更清晰 */
+}
+
+/* 代码块样式 - 这些样式专门用于显示代码 */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;  /* 使用等宽字体显示代码，确保代码对齐 */
+}
+
+/* 应用名称样式 - 用于显示网站标题 */
+.app-name {
+  color: #fff;  /* 设置文字颜色为白色 */
+  font-size: 20px;  /* 设置字体大小 */
+  font-weight: 600;  /* 设置字体粗细，600表示半粗体 */
+  margin-bottom: 16px;  /* 设置下方外边距，与其他元素保持距离 */
+  padding-bottom: 8px;  /* 设置下方内边距 */
+  border-bottom: 1px solid #f0f0f0;  /* 添加底部边框线，颜色为浅灰色 */
+  display: flex;  /* 使用flex布局，使子元素可以灵活排列 */
+  align-items: center;  /* 垂直居中 */
+  position: relative;  /* 设置相对定位，为伪元素定位做准备 */
+  padding-left: 12px;  /* 设置左侧内边距 */
+  white-space: nowrap;  /* 防止文字换行 */
+  overflow: hidden;  /* 隐藏溢出内容 */
+  text-overflow: ellipsis;  /* 当文字溢出时显示省略号 */
+  transition: all 0.3s;  /* 添加过渡动画，使所有属性变化都有平滑效果 */
+}
+
+/* 应用名称前的装饰条 */
+.app-name::before {
+  content: '';  /* 添加伪元素 */
+  position: absolute;  /* 绝对定位 */
+  left: 0;  /* 靠左对齐 */
+  top: 50%;  /* 垂直居中 */
+  transform: translateY(-50%);  /* 通过位移实现完美垂直居中 */
+  width: 4px;  /* 设置宽度 */
+  height: 16px;  /* 设置高度 */
+  background: #1890ff;  /* 设置背景色为蓝色 */
+  border-radius: 2px;  /* 设置圆角 */
+}
+
+/* 鼠标悬停效果 */
+.app-name:hover {
+  color: #1890ff;  /* 鼠标悬停时文字变为蓝色 */
+  transition: color 0.3s ease;  /* 添加颜色过渡动画，持续0.3秒 */
+}
+
+/* 侧边栏折叠时的应用名称样式 */
+.ant-layout-sider-collapsed .app-name {
+  padding: 0;  /* 移除内边距 */
+  margin: 0;  /* 移除外边距 */
+  border: none;  /* 移除边框 */
+  justify-content: center;  /* 水平居中 */
+  font-size: 0;  /* 设置字体大小为0，使文字消失 */
+  height: 0;  /* 设置高度为0 */
+  opacity: 0;  /* 设置透明度为0，完全透明 */
+  visibility: hidden;  /* 隐藏元素，不占用空间 */
+}
+
+/* 侧边栏折叠时隐藏装饰条 */
+.ant-layout-sider-collapsed .app-name::before {
+  display: none;  /* 隐藏装饰条 */
+}
+
+/* 主布局样式 */
+.ant-layout {
+  min-height: 100vh;  /* 设置最小高度为整个视口高度，确保内容少时也能占满屏幕 */
+}
+
+/* 侧边栏样式 */
+.ant-layout-sider {
+  background: #001529 !important;  /* 设置侧边栏背景色为深蓝色，!important确保样式优先级 */
+}
+
+/* Logo区域样式 */
+.demo-logo-vertical {
+  height: 32px;  /* 设置高度 */
+  margin: 16px;  /* 设置外边距 */
+  background: rgba(255, 255, 255, 0.2);  /* 设置半透明白色背景 */
+  border-radius: 6px;  /* 设置圆角 */
+  display: flex;  /* 使用flex布局 */
+  align-items: center;  /* 垂直居中 */
+  justify-content: center;  /* 水平居中 */
+  color: white;  /* 设置文字颜色为白色 */
+  font-size: 16px;  /* 设置字体大小 */
+  font-weight: bold;  /* 设置字体粗细 */
+}
+
+/* 顶部导航栏样式 */
+.ant-layout-header {
+  padding: 0 !important;  /* 移除内边距 */
+  background: #fff !important;  /* 设置背景色为白色 */
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);  /* 添加阴影效果，使导航栏有层次感 */
+  position: relative;  /* 设置相对定位 */
+  z-index: 1;  /* 设置层级，确保在内容之上 */
+}
+
+/* 内容区域样式 */
+.ant-layout-content {
+  background: #f0f2f5 !important;  /* 设置背景色为浅灰色 */
+  padding: 24px !important;  /* 设置内边距 */
+}
+
+/* 菜单样式 */
+.ant-menu {
+  background: transparent !important;  /* 设置菜单背景为透明 */
+}
+
+/* 菜单项样式 */
+.ant-menu-item {
+  margin: 4px 0 !important;  /* 设置菜单项之间的间距 */
+}
+
+/* 选中菜单项样式 */
+.ant-menu-item-selected {
+  background: #1890ff !important;  /* 设置选中菜单项的背景色为蓝色 */
+}
+
+/* 按钮基础样式 */
+.ant-btn {
+  transition: all 0.3s;  /* 添加过渡动画效果 */
+}
+
+/* 按钮悬停效果 */
+.ant-btn:hover {
+  color: #1890ff !important;  /* 设置按钮悬停时的文字颜色为蓝色 */
+}
+
+/* 内容卡片样式 */
+.ant-layout-content > div {
+  background: #fff;  /* 设置卡片背景色为白色 */
+  padding: 24px;  /* 设置内边距 */
+  border-radius: 8px;  /* 设置圆角 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);  /* 添加阴影效果 */
+  min-height: 280px;  /* 设置最小高度 */
+}
+
+/* 响应式布局 - 在屏幕宽度小于768px时生效 */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    position: fixed !important;  /* 将侧边栏固定在屏幕上 */
+    height: 100vh;  /* 设置高度为整个视口高度 */
+    z-index: 2;  /* 设置层级，确保在内容之上 */
+  }
+  
+  .ant-layout-content {
+    margin-left: 0 !important;  /* 移除左边距 */
+  }
+}
