@@ -1,0 +1,9 @@
+/* 头部容器样式 - 用于包裹头部导航栏的所有元素 */
+.header-container {
+    /* 使用flex布局，使子元素可以灵活排列 */
+    display: flex;
+    /* 子元素在主轴（水平方向）上均匀分布，两端对齐 */
+    justify-content: space-between;
+    /* 子元素在交叉轴（垂直方向）上居中对齐 */
+    align-items: center;
+}
