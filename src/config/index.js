@@ -10,24 +10,25 @@ export const routes = [
         name:'home',
         label:'首页',
         icon:'HomeOutlined',
-        url:'/home/index',
+        url:'/home/index'
     },
     {
         path:'/mail',
         name:'mail',
         label:'商品管理',
         icon:'ShopOutlined',
-        url:'/mail/index',
+        url:'/mail/index'
     },
     {
         path:'/user',
         name:'user',
         label:'用户管理',
         icon:'UserOutlined',
-        url:'/user/index',
+        url:'/user/index'
     },
     {
         path:'/other',
+        name:'other',
         label:'其他',
         icon:'SettingOutlined',
         children:[
@@ -35,13 +36,15 @@ export const routes = [
                 path:'/other/pageOne',
                 name:'otherPageOne',
                 label:'页面1',
-                icon:'SettingOutlined'
+                icon:'SettingOutlined',
+                url:'/other/pageOne/index',
             },
             {
                 path:'/other/pageTwo',
                 name:'otherPageTwo',
                 label:'页面2',
-                icon:'SettingOutlined'
+                icon:'SettingOutlined',
+                url:'/other/pageTwo/index',
             }
         ]
     }
