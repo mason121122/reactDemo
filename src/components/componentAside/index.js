@@ -1,4 +1,5 @@
 import React from "react";
+import './index.css';
 import MenuConfig from '../../config'
 import * as Icon from '@ant-design/icons';
 import {Menu} from "antd";

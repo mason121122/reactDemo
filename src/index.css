@@ -14,44 +14,9 @@ code {
     monospace;  /* 使用等宽字体显示代码，确保代码对齐 */
 }
 
-/* 应用名称样式 - 用于显示网站标题 */
-.app-name {
-  color: #fff;  /* 设置文字颜色为白色 */
-  font-size: 20px;  /* 设置字体大小 */
-  font-weight: 600;  /* 设置字体粗细，600表示半粗体 */
-  margin-bottom: 16px;  /* 设置下方外边距，与其他元素保持距离 */
-  padding-bottom: 8px;  /* 设置下方内边距 */
-  border-bottom: 1px solid #f0f0f0;  /* 添加底部边框线，颜色为浅灰色 */
-  display: flex;  /* 使用flex布局，使子元素可以灵活排列 */
-  align-items: center;  /* 垂直居中 */
-  position: relative;  /* 设置相对定位，为伪元素定位做准备 */
-  padding-left: 12px;  /* 设置左侧内边距 */
-  white-space: nowrap;  /* 防止文字换行 */
-  overflow: hidden;  /* 隐藏溢出内容 */
-  text-overflow: ellipsis;  /* 当文字溢出时显示省略号 */
-  transition: all 0.3s;  /* 添加过渡动画，使所有属性变化都有平滑效果 */
-}
-
-/* 侧边栏折叠时的应用名称样式 */
-.ant-layout-sider-collapsed .app-name {
-  padding: 0;  /* 移除内边距 */
-  margin: 0;  /* 移除外边距 */
-  border: none;  /* 移除边框 */
-  justify-content: center;  /* 水平居中 */
-  font-size: 0;  /* 设置字体大小为0，使文字消失 */
-  height: 0;  /* 设置高度为0 */
-  opacity: 0;  /* 设置透明度为0，完全透明 */
-  visibility: hidden;  /* 隐藏元素，不占用空间 */
-}
-
 /* 主布局样式 */
 .ant-layout {
   min-height: 100vh;  /* 设置最小高度为整个视口高度，确保内容少时也能占满屏幕 */
-}
-
-/* 侧边栏样式 */
-.ant-layout-sider {
-  background: #001529 !important;  /* 设置侧边栏背景色为深蓝色，!important确保样式优先级 */
 }
 
 /* 顶部导航栏样式 */
@@ -69,30 +34,7 @@ code {
   padding: 24px !important;  /* 设置内边距 */
 }
 
-/* 菜单样式 */
-.ant-menu {
-  background: transparent !important;  /* 设置菜单背景为透明 */
-}
 
-/* 菜单项样式 */
-.ant-menu-item {
-  margin: 5px 0 !important;  /* 设置菜单项之间的间距 */
-}
-
-/* 选中菜单项样式 */
-.ant-menu-item-selected {
-  background: #1890ff !important;  /* 设置选中菜单项的背景色为蓝色 */
-}
-
-/* 按钮基础样式 */
-.ant-btn {
-  transition: all 0.3s;  /* 添加过渡动画效果 */
-}
-
-/* 按钮悬停效果 */
-.ant-btn:hover {
-  color: #1890ff !important;  /* 设置按钮悬停时的文字颜色为蓝色 */
-}
 
 /* 内容卡片样式 */
 .ant-layout-content > div {
@@ -103,14 +45,8 @@ code {
   min-height: 280px;  /* 设置最小高度 */
 }
 
-/* 响应式布局 - 在屏幕宽度小于768px时生效 */
+/* 针对内容区域的响应式样式 */
 @media (max-width: 768px) {
-  .ant-layout-sider {
-    position: fixed !important;  /* 将侧边栏固定在屏幕上 */
-    height: 100vh;  /* 设置高度为整个视口高度 */
-    z-index: 2;  /* 设置层级，确保在内容之上 */
-  }
-  
   .ant-layout-content {
     margin-left: 0 !important;  /* 移除左边距 */
   }
