@@ -1,4 +1,7 @@
 # 忽略Node.js依赖和缓存
 node_modules/
 .cache/
+# 忽略 JetBrains IDE 的 workspace.xml 文件
 workspace.xml
+
+.idea/
