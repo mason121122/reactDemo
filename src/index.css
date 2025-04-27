@@ -54,11 +54,11 @@ code {
 
 /* 确保弹出菜单背景不透明 */
 .ant-menu-submenu-popup {
-  background-color: #001529 !important;
+  /*background-color: #001529 !important;*/
 }
 
 .ant-menu-submenu-popup .ant-menu-item:hover {
-  background-color: #1890ff !important;
+  background-color: #657692 !important;
   color: white !important;
 }
 

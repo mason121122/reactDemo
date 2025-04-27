@@ -15,7 +15,7 @@ const Home = () => {
             console.log('获取的产品列表:', products);
             return products;
         } catch (error) {
-            console.error('获取产品列表失败:', error);
+            console.log('获取产品列表失败:', error);
             throw error;
         }
     }

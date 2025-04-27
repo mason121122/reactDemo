@@ -35,7 +35,7 @@ const ComponentAside = ({collapsed}) => {
     console.log(collapsed);
     return (
         // <Sider trigger={null} collapsible collapsed={collapsed}>
-        <Sider trigger={null} collapsed={collapsed} >
+        <Sider trigger={null} collapsed={collapsed}  width="250px">
             <h3 className="app-name">{collapsed ? '':'通用后台管理系统'}</h3>
             <Menu
                 theme="dark"
