@@ -30,11 +30,12 @@ const items = MenuConfig.map((icon ) => {
 
 // 动态获取icon
 
-const ComponentAside = () => {
+const ComponentAside = ({collapsed}) => {
+    console.log(collapsed);
     return (
         // <Sider trigger={null} collapsible collapsed={collapsed}>
-        <Sider trigger={null} collapsible >
-            <h3 className="app-name">通用后台管理系统</h3>
+        <Sider trigger={null} collapsed={collapsed} >
+            <h3 className="app-name">{collapsed ? '':'通用后台管理系统'}</h3>
             <Menu
                 theme="dark"
                 mode="inline"

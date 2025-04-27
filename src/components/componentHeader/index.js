@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useMemo} from "react";
 import './index.css';
 import * as Icon from '@ant-design/icons';
 import {Button, Avatar, Badge, Space, Dropdown} from "antd";
 import {Header} from "antd/es/layout/layout";
+import {useDispatch} from 'react-redux'
+import {collapseMenu} from '../../store/reducers/tab'
 // import {MenuFoldOutlined} from "@ant-design/icons";
 
 
-const ComponentHeader = () => {
+const ComponentHeader = ({collapsed}) => {
 
     const items = [
         {
@@ -32,6 +34,15 @@ const ComponentHeader = () => {
         }
     ];
 
+    // 创建dispath
+    const dispatch = useDispatch();
+    // 收起状态变化图片跟着变化
+    const icons = collapsed ? <Icon.MenuUnfoldOutlined /> : <Icon.MenuFoldOutlined />;
+    // 点击展开收起按钮
+    const setCollapsed = (collapsed) => {
+        console.log(collapsed);
+        dispatch(collapseMenu(collapsed));
+    }
 
     return (
         // <Header style={{padding: 0, background: colorBgContainer}}>
@@ -49,13 +60,14 @@ const ComponentHeader = () => {
 
             <Button
                 type="text"
-                icon={<Icon.MenuFoldOutlined/>}
+                icon={icons}
                 style={{
                     fontSize: '16px',
                     width: 64,
                     height: 64,
                     background: '#ffffff',
                 }}
+                onClick={() => setCollapsed(collapsed)}
             />
 
 

@@ -14,27 +14,27 @@ import { Button, Layout, Menu, theme } from 'antd';
 import ComponentAside from "../components/componentAside";
 import ComponentHeader from "../components/componentHeader";
 import '../index.css';
+import {useSelector} from 'react-redux'
 
 const { Header, Sider, Content } = Layout;
 
 const Main = () => {
-    const [collapsed, setCollapsed] = useState(false);
-    const navigate = useNavigate();
+    // const [setCollapsed] = useState(false);
+    // const navigate = useNavigate();
 
-    const handleMenuClick = (item) => {
-        navigate(item.key);
-    };
 
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
+    // 获取展开的收起的状态
+    const collapsed = useSelector(state => state.tab.isCollapsed);
     return (
         <Layout>
-            <ComponentAside/>
+            <ComponentAside collapsed={collapsed} />
 
             <Layout>
-                <ComponentHeader/>
+                <ComponentHeader collapsed={collapsed}/>
                 <Content
                     style={{
                         margin: '24px 16px',

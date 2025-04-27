@@ -38,7 +38,7 @@ code {
   margin: 0;  /* 移除外边距 */
   border: none;  /* 移除边框 */
   justify-content: center;  /* 水平居中 */
-  font-size: 0;  /* 设置字体大小为0，使文字消失 */
+  /*font-size: 0;  !* 设置字体大小为0，使文字消失 *!*/
   height: 0;  /* 设置高度为0 */
   opacity: 0;  /* 设置透明度为0，完全透明 */
   visibility: hidden;  /* 隐藏元素，不占用空间 */

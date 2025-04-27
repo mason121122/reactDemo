@@ -9,6 +9,9 @@ import reportWebVitals from './reportWebVitals';
 // 导入全局样式
 import './index.css';
 
+import {Provider} from 'react-redux';
+import store from './store';
+
 // 获取根DOM元素，React应用将挂载在这里
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,8 +19,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // 严格模式会帮助发现潜在的问题，比如不安全的生命周期方法等
 root.render(
   <React.StrictMode>
-    {/* 渲染App组件，这是整个应用的入口 */}
-    <App />
+      <Provider store={store}>
+          {/* 渲染App组件，这是整个应用的入口 */}
+          <App />
+      </Provider>
   </React.StrictMode>
 );
 
