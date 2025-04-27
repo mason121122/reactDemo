@@ -1,3 +1,4 @@
 # 忽略Node.js依赖和缓存
 node_modules/
 .cache/
+workspace.xml

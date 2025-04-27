@@ -1,9 +1,43 @@
 /* 头部容器样式 - 用于包裹头部导航栏的所有元素 */
 .header-container {
-    /* 使用flex布局，使子元素可以灵活排列 */
+    /* 使用flex布局 */
     display: flex;
-    /* 子元素在主轴（水平方向）上均匀分布，两端对齐 */
-    justify-content: space-between;
-    /* 子元素在交叉轴（垂直方向）上居中对齐 */
+    /* 垂直居中 */
     align-items: center;
+    /* 水平方向左对齐 */
+    justify-content: flex-start;
+}
+
+/* 右侧用户头像样式 */
+.header-container > .ant-dropdown-trigger {
+    /* 将元素推到右侧 */
+    margin-left: auto;
+    /* 右侧留出65px空间 */
+    margin-right: 65px;
+    /* 添加鼠标悬停样式的过渡效果 */
+    transition: all 0.3s ease;
+    /* 添加鼠标指针样式 */
+    cursor: pointer;
+}
+
+/* 用户头像悬停效果 */
+.header-container > .ant-dropdown-trigger:hover {
+    /* 鼠标悬停时轻微放大效果 */
+    transform: scale(1.05);
+}
+
+/* 为Avatar组件添加悬停效果 */
+.header-container .ant-avatar {
+    /* 初始背景色 */
+    background-color: #1890ff;
+    /* 平滑过渡效果 */
+    transition: background-color 0.3s ease;
+}
+
+/* Avatar悬停时变色 */
+.header-container .ant-avatar:hover {
+    /* 悬停时的背景色 */
+    background-color: #40a9ff;
+    /* 添加轻微的阴影效果增强立体感 */
+    box-shadow: 0 0 8px rgba(24, 144, 255, 0.5);
 }

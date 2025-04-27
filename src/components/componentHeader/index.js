@@ -1,12 +1,12 @@
 import React from "react";
 import './index.css';
 import * as Icon from '@ant-design/icons';
-import {Button,Avatar,Dropdown,Space} from "antd";
+import {Button, Avatar, Badge, Space, Dropdown} from "antd";
 import {Header} from "antd/es/layout/layout";
 // import {MenuFoldOutlined} from "@ant-design/icons";
 
 
-const ComponentAside = () => {
+const ComponentHeader = () => {
 
     const items = [
         {
@@ -15,19 +15,19 @@ const ComponentAside = () => {
         {
             key: '2',
             label: '个人中心',
-            icon: <Icon.UserOutlined />,
+            icon: <Icon.UserOutlined/>,
             extra: '⌘P',
         },
         {
             key: '4',
             label: '设置',
-            icon: <Icon.SettingOutlined />,
+            icon: <Icon.SettingOutlined/>,
             extra: '⌘S',
         },
         {
             key: '3',
             label: '退出',
-            icon: <Icon.PoweroffOutlined style = {{ color: 'red' }} />,
+            icon: <Icon.PoweroffOutlined style={{color: 'red'}}/>,
             extra: '⌘B',
         }
     ];
@@ -49,7 +49,7 @@ const ComponentAside = () => {
 
             <Button
                 type="text"
-                icon={<Icon.MenuFoldOutlined />}
+                icon={<Icon.MenuFoldOutlined/>}
                 style={{
                     fontSize: '16px',
                     width: 64,
@@ -58,19 +58,13 @@ const ComponentAside = () => {
                 }}
             />
 
-            {/*<Dropdown menu={{ items }}>*/}
-            {/*    <a onClick={e => e.preventDefault()}>*/}
-            {/*        <Space>*/}
-            {/*            <Avatar size={40}>USER</Avatar>*/}
-            {/*            <Icon.DownOutlined />*/}
-            {/*        </Space>*/}
-            {/*    </a>*/}
-            {/*</Dropdown>*/}
 
-            <Dropdown menu={{ items }} placement="bottom" arrow>
-                <Avatar size={40}>USER</Avatar>
+            <Dropdown menu={{items}} placement="bottom" arrow>
+                <Badge count={4}>
+                    <Avatar shape="square" icon={<Icon.UserOutlined/>}/>
+                </Badge>
             </Dropdown>
         </Header>
     )
 }
-export default ComponentAside;
+export default ComponentHeader;

@@ -31,10 +31,10 @@ const Main = () => {
 
     return (
         <Layout>
-            <ComponentAside></ComponentAside>
+            <ComponentAside/>
 
             <Layout>
-                <ComponentHeader></ComponentHeader>
+                <ComponentHeader/>
                 <Content
                     style={{
                         margin: '24px 16px',

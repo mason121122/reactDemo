@@ -32,25 +32,6 @@ code {
   transition: all 0.3s;  /* 添加过渡动画，使所有属性变化都有平滑效果 */
 }
 
-/* 应用名称前的装饰条 */
-.app-name::before {
-  content: '';  /* 添加伪元素 */
-  position: absolute;  /* 绝对定位 */
-  left: 0;  /* 靠左对齐 */
-  top: 50%;  /* 垂直居中 */
-  transform: translateY(-50%);  /* 通过位移实现完美垂直居中 */
-  width: 4px;  /* 设置宽度 */
-  height: 16px;  /* 设置高度 */
-  background: #1890ff;  /* 设置背景色为蓝色 */
-  border-radius: 2px;  /* 设置圆角 */
-}
-
-/* 鼠标悬停效果 */
-.app-name:hover {
-  color: #1890ff;  /* 鼠标悬停时文字变为蓝色 */
-  transition: color 0.3s ease;  /* 添加颜色过渡动画，持续0.3秒 */
-}
-
 /* 侧边栏折叠时的应用名称样式 */
 .ant-layout-sider-collapsed .app-name {
   padding: 0;  /* 移除内边距 */
