@@ -65,30 +65,3 @@
         z-index: 2; /* 设置层级，确保在内容之上 */
     }
 }
-
-/*!* 菜单项中的文字样式 *!*/
-/*.ant-menu-item span {*/
-/*    !*margin: 0 auto !important; !* 文字居中 *!*!*/
-/*    position: absolute;*/
-/*    left: 50%;*/
-/*    transform: translateX(-50%);*/
-/*    text-align: center;*/
-/*    white-space: nowrap; !* 防止文字换行 *!*/
-/*}*/
-
-/*!* 子菜单标题样式 *!*/
-/*.ant-menu-submenu-title {*/
-/*    display: flex !important; !* 使用flex布局 *!*/
-/*    align-items: center !important; !* 垂直居中 *!*/
-/*}*/
-
-/*!* 子菜单标题中的图标样式 *!*/
-/*.ant-menu-submenu-title .anticon {*/
-/*    margin-right: auto !important; !* 图标靠左 *!*/
-/*}*/
-
-/*!* 子菜单标题中的文字样式 *!*/
-/*.ant-menu-submenu-title span {*/
-/*    margin: 0 auto  !important; !* 文字居中 *!*/
-
-/*}*/

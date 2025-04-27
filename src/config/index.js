@@ -8,7 +8,7 @@ export const routes = [
     {
         path:'/home',
         name:'home',
-        label:'首页',
+        label:'店铺概况',
         icon:'HomeOutlined',
         url:'/home/index'
     },
@@ -29,7 +29,7 @@ export const routes = [
     {
         path:'/other',
         name:'other',
-        label:'其他',
+        label:'接待管理',
         icon:'SettingOutlined',
         children:[
             {
@@ -45,6 +45,28 @@ export const routes = [
                 label:'页面2',
                 icon:'SettingOutlined',
                 url:'/other/pageTwo/index',
+            }
+        ]
+    },
+    {
+        path:'/inventory',
+        name:'inventory',
+        label:'库存管理',
+        icon:'SettingOutlined',
+        children:[
+            {
+                path:'/inventory/pageOne',
+                name:'inventoryPageOne',
+                label:'页面1',
+                icon:'SettingOutlined',
+                url:'/inventory/pageOne/index',
+            },
+            {
+                path:'/inventory/pageTwo',
+                name:'inventoryPageTwo',
+                label:'页面2',
+                icon:'SettingOutlined',
+                url:'/inventory/pageTwo/index',
             }
         ]
     }
