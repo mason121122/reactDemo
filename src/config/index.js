@@ -27,24 +27,24 @@ export const routes = [
         url:'/user/index'
     },
     {
-        path:'/other',
-        name:'other',
+        path:'/reception',
+        name:'reception',
         label:'接待管理',
         icon:'SettingOutlined',
         children:[
             {
-                path:'/other/pageOne',
-                name:'otherPageOne',
-                label:'页面1',
-                icon:'SettingOutlined',
-                url:'/other/pageOne/index',
+                path:'/reception/pageOne/index',
+                name:'receptionPageOne',
+                label:'reception页面1',
+                icon:'',
+                url:'/reception/pageOne/index',
             },
             {
-                path:'/other/pageTwo',
-                name:'otherPageTwo',
-                label:'页面2',
-                icon:'SettingOutlined',
-                url:'/other/pageTwo/index',
+                path:'/reception/pageTwo/index',
+                name:'receptionPageTwo',
+                label:'reception页面2',
+                icon:'',
+                url:'/reception/pageTwo/index',
             }
         ]
     },
@@ -59,14 +59,14 @@ export const routes = [
                 name:'inventoryPageOne',
                 label:'页面1',
                 icon:'SettingOutlined',
-                url:'/inventory/pageOne/index',
+                url:'/inventory/pageOne',
             },
             {
                 path:'/inventory/pageTwo',
                 name:'inventoryPageTwo',
                 label:'页面2',
                 icon:'SettingOutlined',
-                url:'/inventory/pageTwo/index',
+                url:'/inventory/pageTwo',
             }
         ]
     }

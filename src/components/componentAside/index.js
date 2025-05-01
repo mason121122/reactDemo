@@ -1,15 +1,18 @@
 import React from "react";
 import './index.css';
 import MenuConfig from '../../config'
+import Router from '../../router'
 import * as Icon from '@ant-design/icons';
 import {Menu} from "antd";
 import Sider from "antd/es/layout/Sider";
+import {useNavigate} from "react-router-dom";
 
 
 const iconToElement = (name) => React.createElement(Icon[name])
 
 // 处理菜单的数组
 const items = MenuConfig.map((icon ) => {
+
     //没有子菜单
     const child = {
         key:icon.path,
@@ -32,6 +35,14 @@ const items = MenuConfig.map((icon ) => {
 // 动态获取icon
 
 const ComponentAside = ({collapsed}) => {
+    const navigation = useNavigate();
+
+
+    const selectMenus = (e)=>{
+        navigation(e.key)
+    }
+
+
     console.log(collapsed);
     return (
         // <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -42,6 +53,7 @@ const ComponentAside = ({collapsed}) => {
                 mode="inline"
                 defaultSelectedKeys={['1']}
                 items={items}
+                onClick={selectMenus}
             />
         </Sider>
     )

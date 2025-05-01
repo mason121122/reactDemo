@@ -1,6 +1,6 @@
 import React from "react";
 
-const PageTwo = () => {
+const Index = () => {
     return (
         <div>
             PageTwo
@@ -8,4 +8,4 @@ const PageTwo = () => {
     )
 }
 
-export default PageTwo;
+export default Index;

@@ -1,11 +1,11 @@
 import React from "react";
 
-const PageTwo = () => {
+const Index = () => {
     return (
         <div>
-            PageTwo
+            PageOne
         </div>
     )
 }
 
-export default PageTwo;
+export default Index;

@@ -4,12 +4,14 @@ import Main from "../pages/main";
 import Home from "../pages/home";
 import Mail from "../pages/mail";
 import User from "../pages/user";
-import PageOne from "../pages/other/pageOne";
-import PageTwo from "../pages/other/pageTwo";
+import ReceptionPageOne from "../pages/reception/pageOne/index";
+import ReceptionPageTwo from "../pages/reception/pagetwo/index";
+import InventoryPageOne from "../pages/inventory/pageOne";
+import InventoryPageTwo from "../pages/inventory/pageTwo";
 
 // 定义路由配置
 const routes = [
-    // 根路径重定向到home页面
+    // 根路径重定向到home页面，此处配置的是跳转逻辑的路由，config中的路由配置是导航菜单
     {
         path: "/",
         element: <Navigate to="/home" replace={true} />
@@ -34,19 +36,35 @@ const routes = [
                 path: "user",
                 element: <User />
             },
-            // Other页面路由组，包含两个子页面
+            // 接待管理，包含两个子页面
             {
-                path: "other",
+                path: "reception",
                 children: [
                     // PageOne页面路由
                     {
-                        path: "pageOne",
-                        element: <PageOne />
+                        path: "/reception/pageOne/index",
+                        element: <ReceptionPageOne />
                     },
                     // PageTwo页面路由
                     {
-                        path: "pageTwo",
-                        element: <PageTwo />
+                        path: "/reception/pageTwo/index",
+                        element: <ReceptionPageTwo />
+                    }
+                ]
+            },
+            // 库存管理
+            {
+                path: "inventory",
+                children: [
+                    // PageOne页面路由
+                    {
+                        path: "/inventory/pageOne",
+                        element: <InventoryPageOne />
+                    },
+                    // PageTwo页面路由
+                    {
+                        path: "/inventory/pageTwo",
+                        element: <InventoryPageTwo />
                     }
                 ]
             }
