@@ -39,22 +39,70 @@
     font-size: 18px;
 }
 
-/* 菜单项样式 */
-.ant-menu-item {
-  margin: 5px 0 !important;  /* 设置菜单项之间的间距 */
+/* 菜单项样式 - 对所有菜单项和子菜单项生效 */
+.ant-menu-item, .ant-menu-submenu-title {
+    margin: 5px 0 !important;  /* 设置菜单项之间的间距 */
+    display: flex !important; /* 使用flex布局 */
+    align-items: center !important; /* 垂直居中对齐 */
+    padding-right: 16px !important; /* 统一右侧内边距 */
 }
 
-/* 选中菜单项样式 */
-.ant-menu-item-selected {
+/* 菜单项和子菜单项的图标样式 */
+.ant-menu-item .anticon,
+.ant-menu-submenu-title .anticon {
+    margin-right: auto !important; /* 使图标靠左对齐 */
+}
+
+/* 菜单项和子菜单项的文本样式 */
+.ant-menu-item span:not(.anticon),
+.ant-menu-submenu-title span:not(.anticon) {
+    margin: 0 auto !important; /* 使文本水平居中 */
+    text-align: center !important; /* 文本内容居中 */
+    width: 100px !important; /* 固定宽度确保对齐 */
+    position: absolute !important; /* 绝对定位 */
+    left: 50% !important; /* 居中定位 */
+    transform: translateX(-50%) !important; /* 水平居中 */
+}
+
+/* 隐藏子菜单箭头图标 */
+.ant-menu-submenu-arrow {
+    display: none !important; /* 完全隐藏箭头 */
+}
+
+/* 子菜单内的菜单项样式 */
+.ant-menu-sub .ant-menu-item {
+    padding-left: 24px !important; /* 子菜单项缩进 */
+    margin: 2px 0 !important; /* 减小二级菜单项之间的间距 */
+    font-size: 14px !important; /* 设置二级菜单的字体更小 */
+    height: 36px !important; /* 减小二级菜单项的高度 */
+    line-height: 36px !important; /* 与高度匹配 */
+}
+
+/* 选中菜单项样式 - 只应用于一级菜单 */
+.ant-menu > .ant-menu-item-selected {
     background: #657692 !important; /* 设置选中菜单项的背景色 */
 }
 
-/* Avatar悬停时变色 */
-.ant-menu-item:hover {
+/* 禁用二级菜单选中效果 */
+.ant-menu-sub .ant-menu-item-selected {
+    background: transparent !important; /* 透明背景 */
+    color: #fff !important; /* 文字颜色保持白色 */
+}
+
+/* 一级菜单悬停效果 - 应用于所有一级菜单项 */
+.ant-menu-submenu-title:hover,
+.ant-menu > .ant-menu-item:hover {
     /* 悬停时的背景色 */
     background: #657692 !important;
     /* 添加轻微的阴影效果增强立体感 */
     box-shadow: 0 0 8px rgba(14, 2, 2, 0.3);
+}
+
+/* 禁用二级菜单悬停效果 */
+.ant-menu-sub .ant-menu-item:hover {
+    background: transparent !important; /* 透明背景 */
+    box-shadow: none !important; /* 移除阴影 */
+    border-left: none !important; /* 移除左边框 */
 }
 
 /* 响应式布局 - 在屏幕宽度小于768px时生效 */
