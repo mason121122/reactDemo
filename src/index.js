@@ -8,6 +8,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // 导入全局样式
 import './index.css';
+// 导入mock数据服务
+import './api/mock';
 
 import {Provider} from 'react-redux';
 import store from './store';
