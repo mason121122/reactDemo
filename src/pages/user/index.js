@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Button, Form, Input, Table, Tag, Popconfirm, Modal,InputNumber} from "antd";
 import '../user/user.css'
 import API from "../../api";
@@ -55,12 +55,34 @@ const Index = () => {
             });
             console.log('获取的产品列表:', products);
             setTableData(products.data)
-            // return products;
+            return products;
         } catch (error) {
             console.log('获取产品列表失败:', error);
             throw error;
         }
     }
+    let rederRef = useRef(true);
+    useEffect(() => {
+        if(rederRef.current){
+            rederRef.current = false;
+            return;
+        }
+        //调用后端接口获取用户数据
+        getTableData().then((products) => {
+            console.log('成功:', products);
+
+        }).catch((error) => {
+            console.error('失败:', error.message);
+            // 这里可以根据错误类型进行不同的提示处理
+            if (error.response && error.response.status === 404) {
+                console.log('未找到产品列表');
+            } else if (error.response && error.response.status === 500) {
+                console.log('服务器内部错误');
+            } else {
+                console.log('请求发生未知错误');
+            }
+        });
+    }, []);
     const columns = [
         {
             title: '商品名称',
@@ -110,25 +132,20 @@ const Index = () => {
             render: (rowData) => {
                 return (
                     <div className='flex-box'>
-                        <Button style={{marginRight: '5px'}} onClick={() => handleClick(rowData)}>编辑</Button>
+                        <Button style={{marginRight: '5px'}} onClick={() => handleClick('edit',rowData)}>编辑</Button>
                         <Popconfirm
                             title="确认删除"
                             description="是否确认删除?"
                             okText="确定"
                             cancelText="取消"
                         >
-                            <Button danger onClick={() => deleteUser('edit', rowData)}>删除</Button>
+                            <Button danger onClick={() => deleteUser(rowData)}>删除</Button>
                         </Popconfirm>
                     </div>
                 )
             }
         }
     ]
-    useEffect(() => {
-        //调用后端接口获取用户数据
-        getTableData();
-    }, []);
-
     return (
         <div>
             <div className='user'>
