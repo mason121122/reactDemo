@@ -31,7 +31,7 @@ code {
 /* 内容区域样式 */
 .ant-layout-content {
   background: #f0f2f5 !important;  /* 设置背景色为浅灰色 */
-  padding: 24px !important;  /* 设置内边距 */
+  padding: 0 !important;  /* 设置内边距 */
 }
 
 

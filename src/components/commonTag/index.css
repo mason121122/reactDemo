@@ -1,0 +1,116 @@
+.tags-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px; /* 减小顶部和底部的内边距 */
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #ffffff;
+    position: relative; /* 确保子元素可以相对它定位 */
+}
+
+.common-tag {
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: calc(100vw - 200px);
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+    padding: 2px 0; /* 减小上下内边距 */
+}
+
+/* 为现代浏览器隐藏滚动条但保留功能 */
+.common-tag::-webkit-scrollbar {
+    height: 3px;
+}
+
+.common-tag::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.common-tag::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* 当鼠标悬停在tag容器上时显示滚动条 */
+.common-tag:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* tag样式改进 */
+.common-tag .ant-tag {
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+    position: relative;
+    margin-top: 0px; /* 减小上边距 */
+    margin-bottom: 0px; /* 减小下边距 */
+    padding: 1px 7px; /* 减小内边距，标准的antd tag是4px 7px */
+    line-height: 20px; /* 减小行高 */
+    font-size: 12px; /* 稍微减小字体 */
+}
+
+/* tag悬停效果 */
+.common-tag .ant-tag:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* 确保悬停元素在上层 */
+    background-color: #e6f7ff; /* 淡蓝色背景增强视觉效果 */
+}
+
+/* 更多标签的样式 */
+.more-tag {
+    background-color: #fafafa;
+    border-style: dashed;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    height: 22px; /* 匹配其他标签的高度 */
+    line-height: 22px;
+}
+
+.more-tag:hover {
+    background-color: #f0f0f0;
+}
+
+/* 标签操作区域样式 */
+.tag-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.tag-actions .ant-btn {
+    margin-left: 4px;
+    color: #999;
+    font-size: 12px;
+    padding: 0 6px;
+    height: 22px; /* 减小按钮高度 */
+    line-height: 22px;
+}
+
+.tag-actions .ant-btn:hover {
+    color: #1890ff;
+    background-color: #f5f5f5;
+}
+
+/* 适配小屏幕 */
+@media (max-width: 768px) {
+    .common-tag {
+        max-width: 70vw;
+    }
+    
+    .tag-actions {
+        margin-left: 8px;
+    }
+    
+    .tag-actions .ant-btn {
+        padding: 0 4px;
+    }
+}
