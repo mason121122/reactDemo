@@ -8,6 +8,7 @@ import ReceptionPageOne from "../pages/reception/pageOne/index";
 import ReceptionPageTwo from "../pages/reception/pagetwo/index";
 import InventoryPageOne from "../pages/inventory/pageOne";
 import InventoryPageTwo from "../pages/inventory/pageTwo";
+import Login from "../pages/login";
 
 // 定义路由配置
 const routes = [
@@ -15,6 +16,10 @@ const routes = [
     {
         path: "/",
         element: <Navigate to="/home" replace={true} />
+    },
+    {
+        path: "login",
+        element: <Login />
     },
     // 主布局路由，包含所有子路由
     {

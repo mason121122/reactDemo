@@ -7,17 +7,17 @@ const Home = () => {
     const userImage = require("../../assets/images/user.png");
     // 异步请求方法
     const fetchProducts = async () => {
-        try {
-            const { data: products } = await API.products.list({
-                sort: 'price',
-                order: 'desc'
-            });
-            console.log('获取的产品列表:', products);
-            return products;
-        } catch (error) {
-            console.log('获取产品列表失败:', error);
-            throw error;
-        }
+        // try {
+        //     const { data: products } = await API.products.list({
+        //         sort: 'price',
+        //         order: 'desc'
+        //     });
+        //     console.log('获取的产品列表:', products);
+        //     return products;
+        // } catch (error) {
+        //     console.log('获取产品列表失败:', error);
+        //     throw error;
+        // }
     }
     // 异步请求回调方法
     const handleProductData = (products) => {

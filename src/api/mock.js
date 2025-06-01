@@ -1,5 +1,6 @@
 import mock from 'mockjs';
 import HomeApi, {getHomeList} from './mockServeData/homeApi';
+import PermissionApi from './mockServeData/permission';
 // import homeApi from "./mockServeData/homeApi";
 
 // 修正拦截规则，匹配完整的请求路径
@@ -21,3 +22,5 @@ mock.mock(/\/api\/users/, 'get', () => {
         data: homeList
     }
 });
+
+mock.mock(/\/permission\/getMenu/, 'post', PermissionApi.getMenu);

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Button, Form, Input, Table, Tag, Popconfirm, Modal,InputNumber} from "antd";
 import '../user/user.css'
-import API from "../../api";
+// import API from "../../api";
 
 const Index = () => {
     // 请求参数
@@ -48,18 +48,18 @@ const Index = () => {
     const [form] = Form.useForm();
 
     const getTableData = async () => {
-        try {
-            const {data: products} = await API.products.list({
-                sort: 'price',
-                order: 'desc'
-            });
-            console.log('获取的产品列表:', products);
-            setTableData(products.data)
-            return products;
-        } catch (error) {
-            console.log('获取产品列表失败:', error);
-            throw error;
-        }
+        // try {
+        //     const {data: products} = await API.products.list({
+        //         sort: 'price',
+        //         order: 'desc'
+        //     });
+        //     console.log('获取的产品列表:', products);
+        //     setTableData(products.data)
+        //     return products;
+        // } catch (error) {
+        //     console.log('获取产品列表失败:', error);
+        //     throw error;
+        // }
     }
     let rederRef = useRef(true);
     useEffect(() => {

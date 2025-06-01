@@ -68,11 +68,11 @@ const ComponentAside = ({collapsed}) => {
         })
         
         if (data) {
-            setTabList({
+        setTabList({
                 path: data.path,
                 name: data.name,
                 label: data.label
-            })
+        })
             // 使用data.path确保导航到正确的路径
             navigation(data.path)
         }

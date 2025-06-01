@@ -19,7 +19,7 @@ const CommonTag = (props) => {
     // 状态用于控制是否显示溢出菜单
     const [showOverflowMenu, setShowOverflowMenu] = useState(false);
     
-    console.log("tabsList:",tabsList);
+        console.log("tabsList:",tabsList);
     
     const handleClose = (tag, index) => {
         // 只处理被点击的tag
@@ -174,12 +174,12 @@ const CommonTag = (props) => {
     
     return(
         <div className="tags-container">
-            <Space className="common-tag" size={[0,8]}>
-                {
+        <Space className="common-tag" size={[0,8]}>
+        {
                     currentMenu.name && tabsList.slice(0, MAX_VISIBLE_TAGS).map((item, index) =>(
                         setTag(isPathMatch(item.path, currentMenu.path), item, index)
                     ))
-                }
+        }
                 
                 {tabsList.length > MAX_VISIBLE_TAGS && (
                     <Dropdown 
@@ -198,7 +198,7 @@ const CommonTag = (props) => {
                         </Tag>
                     </Dropdown>
                 )}
-            </Space>
+        </Space>
             
             <div className="tag-actions">
                 <Tooltip title="关闭其他标签">
