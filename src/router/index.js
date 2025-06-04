@@ -10,12 +10,22 @@ import InventoryPageOne from "../pages/inventory/pageOne";
 import InventoryPageTwo from "../pages/inventory/pageTwo";
 import Login from "../pages/login";
 
+// 模拟认证检查函数
+const isAuthenticated = () => {
+    return localStorage.getItem('isLoggedIn') === 'true';
+};
+
+// 认证检查组件
+const PrivateRoute = ({ element }) => {
+    return isAuthenticated() ? element : <Navigate to="/login" replace />;
+};
 // 定义路由配置
 const routes = [
     // 根路径重定向到home页面，此处配置的是跳转逻辑的路由，config中的路由配置是导航菜单
     {
         path: "/",
-        element: <Navigate to="/home" replace={true} />
+        // element: <Navigate to="/home" replace={true} />
+        element: <Navigate to="/login" replace={true} />
     },
     {
         path: "login",
@@ -23,13 +33,14 @@ const routes = [
     },
     // 主布局路由，包含所有子路由
     {
+
         path: "/",
         element: <Main />,
         children: [
             // Home页面路由
             {
                 path: "home",
-                element: <Home />
+                element: <PrivateRoute element={<Home />} />
             },
             // Mail页面路由
             {

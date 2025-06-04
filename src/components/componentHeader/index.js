@@ -5,10 +5,34 @@ import {Button, Avatar, Badge, Space, Dropdown} from "antd";
 import {Header} from "antd/es/layout/layout";
 import {useDispatch} from 'react-redux'
 import {collapseMenu} from '../../store/reducers/tab'
+import {useNavigate} from "react-router-dom";
 // import {MenuFoldOutlined} from "@ant-design/icons";
 
 
 const ComponentHeader = ({collapsed}) => {
+    const navigate = useNavigate();
+    // 定义每个菜单项的点击事件处理函数
+    const handleMenuItemClick = (key) => {
+        switch (key) {
+            case '2':
+                console.log('个人中心被点击');
+                // 在这里可以添加跳转到个人中心页面的逻辑
+                break;
+            case '3':
+                console.log('设置被点击');
+                // 在这里可以添加跳转到设置页面的逻辑
+                break;
+            case '4':
+                console.log('退出被点击');
+                localStorage.setItem('isLoggedIn', 'false');
+                navigate('/login');
+                // 在这里可以添加退出登录的逻辑
+                break;
+            default:
+                break;
+        }
+    };
+
 
     const items = [
         {
@@ -19,18 +43,21 @@ const ComponentHeader = ({collapsed}) => {
             label: '个人中心',
             icon: <Icon.UserOutlined/>,
             extra: '⌘P',
-        },
-        {
-            key: '4',
-            label: '设置',
-            icon: <Icon.SettingOutlined/>,
-            extra: '⌘S',
+            onClick: () => handleMenuItemClick('2'),
         },
         {
             key: '3',
+            label: '设置',
+            icon: <Icon.SettingOutlined/>,
+            extra: '⌘S',
+            onClick: () => handleMenuItemClick('3'),
+        },
+        {
+            key: '4',
             label: '退出',
             icon: <Icon.PoweroffOutlined style={{color: 'red'}}/>,
             extra: '⌘B',
+            onClick: () => handleMenuItemClick('4'),
         }
     ];
 

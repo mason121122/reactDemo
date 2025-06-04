@@ -7,13 +7,13 @@ import './index.css';
 const Login = () => {
   const navigate = useNavigate();
   // 在登入状态下需要跳转到home
-  if(localStorage.getItem('token')){
-      return <Navigate to="/home" replace/>
-  }
+  // if(localStorage.getItem('token')){
+  //     return <Navigate to="/home" replace/>
+  // }
 
   const handleSubmit = (val) => {
-    console.log('登录信息:', val);
-    message.success('登录成功');
+    // 模拟登录成功
+    localStorage.setItem('isLoggedIn', 'true');
     navigate('/home');
     // getMenu(val).then(({data}) => {
     //   console.log(data)
