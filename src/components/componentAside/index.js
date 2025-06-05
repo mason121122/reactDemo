@@ -1,7 +1,7 @@
 import React from "react";
 import './index.css';
-import MenuConfig from '../../config'
-import Router from '../../router'
+// import MenuConfig from '../../config'
+import Router from '../../config/index'
 import * as Icon from '@ant-design/icons';
 import {Menu} from "antd";
 import Sider from "antd/es/layout/Sider";
@@ -13,7 +13,7 @@ import {selectMenuList} from '../../store/reducers/tab';
 const iconToElement = (name) => React.createElement(Icon[name])
 
 // 处理菜单的数组
-const items = MenuConfig.map((icon) => {
+const items = Router.map((icon) => {
     //没有子菜单
     const child = {
         key: icon.path,
@@ -54,7 +54,7 @@ const ComponentAside = ({collapsed}) => {
         const clickedKey = e.key;
         
         // tag组件联动
-        MenuConfig.forEach(item => {
+        Router.forEach(item => {
             if (item.path === e.keyPath[e.keyPath.length - 1]) {
                 data = item
                 // 如果是有二级菜单

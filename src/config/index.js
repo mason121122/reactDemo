@@ -104,7 +104,7 @@ export const routes = [
 // ========== API配置 ==========
 
 // API基础URL配置
-export const API_BASE_URL = 'http://localhost:3000/api';  // 开发环境API地址
+export const API_BASE_URL = 'http://localhost:8080';  // 开发环境API地址
 
 // 超时设置
 export const TIMEOUT = 10000; // 10秒
@@ -113,46 +113,6 @@ export const TIMEOUT = 10000; // 10秒
 export const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
-};
-
-// 资源端点配置 - 与路由结构相关联
-export const ENDPOINTS = {
-  // 身份验证相关端点
-  AUTH: {
-    LOGIN: '/auth/login',
-    REGISTER: '/auth/register',
-    LOGOUT: '/auth/logout',
-    REFRESH_TOKEN: '/auth/refresh'
-  },
-  
-  // 用户管理相关端点 - 对应路由中的'/system'
-  USERS: {
-    BASE: '/users',
-    PROFILE: '/users/profile',
-    PERMISSIONS: '/users/permissions',
-    ROLES: '/users/roles'
-  },
-  
-  // 商品管理相关端点 - 对应路由中的'/mail'
-  PRODUCTS: {
-    BASE: '/products',
-    CATEGORIES: '/products/categories',
-    INVENTORY: '/products/inventory',
-    PROMOTIONS: '/products/promotions'
-  },
-  
-  // 首页相关端点 - 对应路由中的'/home'
-  HOME: {
-    DASHBOARD: '/dashboard',
-    STATISTICS: '/statistics',
-    ANNOUNCEMENTS: '/announcements'
-  },
-  
-  // 其他相关端点 - 对应路由中的'/other'
-  OTHERS: {
-    PAGE_ONE: '/others/page-one',
-    PAGE_TWO: '/others/page-two'
-  }
 };
 
 // 请求重试配置

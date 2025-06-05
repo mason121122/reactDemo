@@ -1,9 +1,9 @@
 import axios from 'axios';
+import {API_BASE_URL} from '../config/index';
 
-const baseURL = '/api';
+
 
 // axios二次封装
-
 class HttpRequest {
     constructor(baseURL) {
         this.baseURL = baseURL;
@@ -43,4 +43,4 @@ class HttpRequest {
 
 }
 
-export default new HttpRequest(baseURL)
+export default new HttpRequest(API_BASE_URL)

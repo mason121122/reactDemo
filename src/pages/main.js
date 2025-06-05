@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { Outlet, useNavigate } from 'react-router-dom'
+import React, {useState} from "react";
+import {Outlet, useNavigate} from 'react-router-dom'
 
-import { Button, Layout, Menu, theme } from 'antd';
+import {Button, Layout, Menu, theme} from 'antd';
 import ComponentAside from "../components/componentAside";
 import ComponentHeader from "../components/componentHeader";
 import '../index.css';
 import {useSelector} from 'react-redux'
 import CommonTag from "../components/commonTag";
 
-const { Header, Sider, Content } = Layout;
+
+const {Header, Sider, Content} = Layout;
 
 const Main = () => {
     // const [setCollapsed] = useState(false);
@@ -16,15 +17,14 @@ const Main = () => {
 
 
     const {
-        token: { colorBgContainer, borderRadiusLG },
+        token: {colorBgContainer, borderRadiusLG},
     } = theme.useToken();
 
     // 获取展开的收起的状态
     const collapsed = useSelector(state => state.tab.isCollapsed);
     return (
         <Layout>
-            <ComponentAside collapsed={collapsed} />
-
+            <ComponentAside collapsed={collapsed}/>
             <Layout>
                 <ComponentHeader collapsed={collapsed}/>
                 <CommonTag/>
@@ -37,7 +37,7 @@ const Main = () => {
                         borderRadius: borderRadiusLG,
                     }}
                 >
-                    <Outlet />
+                    <Outlet/>
                 </Content>
             </Layout>
         </Layout>
