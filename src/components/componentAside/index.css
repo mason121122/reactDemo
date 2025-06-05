@@ -16,7 +16,7 @@
     transition: all 0.3s; /* 添加过渡动画，使所有属性变化都有平滑效果 */
 }
 
-/*!* 侧边栏折叠时的应用名称样式 *!*/
+/* 侧边栏折叠时的应用名称样式 */
 .ant-layout-sider-collapsed .app-name {
     padding: 0; /* 移除内边距 */
     margin: 0; /* 移除外边距 */
@@ -28,70 +28,22 @@
     visibility: hidden; /* 隐藏元素，不占用空间 */
 }
 
-/*!* 侧边栏样式 *!*/
+/* 侧边栏样式 */
 .ant-layout-sider {
     background: #425267 !important; /* 设置侧边栏背景色，!important确保样式优先级 */
 }
 
-/*!* 菜单样式 *!*/
+/* 菜单样式 */
 .ant-menu {
     background: #425267 !important;
     font-size: 18px;
 }
-
-/*!* 菜单项样式 - 对所有菜单项和子菜单项生效 *!*/
-/*.ant-menu-item, .ant-menu-submenu-title {*/
-/*    margin: 5px 0 !important;  !* 设置菜单项之间的间距 *!*/
-/*    display: flex !important; !* 使用flex布局 *!*/
-/*    align-items: center !important; !* 垂直居中对齐 *!*/
-/*    padding-right: 16px !important; !* 统一右侧内边距 *!*/
-/*}*/
-
-/*!* 菜单项和子菜单项的图标样式 *!*/
-/*.ant-menu-item .anticon,.ant-menu-submenu-title .anticon {*/
-/*    margin-right: auto !important; !* 使图标靠左对齐 *!*/
-/*}*/
-
-
-/*!* 菜单项和子菜单项的文本样式 *!*/
-/*.ant-menu-item span:not(.anticon),*/
-/*.ant-menu-submenu-title span:not(.anticon) {*/
-/*    margin: 0 auto !important; !* 使文本水平居中 *!*/
-/*    text-align: center !important; !* 文本内容居中 *!*/
-/*    width: 100px !important; !* 固定宽度确保对齐 *!*/
-/*    position: absolute !important; !* 绝对定位 *!*/
-/*    left: 50% !important; !* 居中定位 *!*/
-/*    transform: translateX(-50%) !important; !* 水平居中 *!*/
-/*}*/
-
-/*!* 隐藏子菜单箭头图标 *!*/
-/*.ant-menu-submenu-arrow {*/
-/*    display: none !important; !* 完全隐藏箭头 *!*/
-/*}*/
-
-/*!* 子菜单内的菜单项样式 *!*/
-/*.ant-menu-sub .ant-menu-item {*/
-/*    !*padding-left: 24px !important; !* 子菜单项缩进 *!*!*/
-/*    padding-left: 36px !important; !* 增加左侧内边距，为图标留出空间 *!*/
-/*    margin: 2px 0 !important; !* 减小二级菜单项之间的间距 *!*/
-/*    font-size: 14px !important; !* 设置二级菜单的字体更小 *!*/
-/*    height: 36px !important; !* 减小二级菜单项的高度 *!*/
-/*    line-height: 36px !important; !* 与高度匹配 *!*/
-/*    !*position: relative !important; !* 改为相对定位，便于内部绝对定位参考 *!*!*/
-/*}*/
-
-/*!* 选中菜单项样式 - 只应用于一级菜单 *!*/
+/* 选中菜单项样式 - 只应用于一级菜单 */
 .ant-menu > .ant-menu-item-selected {
     background: #657692 !important; /* 设置选中菜单项的背景色 */
 }
 
-/*!* 禁用二级菜单选中效果 *!*/
-/*.ant-menu-sub .ant-menu-item-selected {*/
-/*    background: transparent !important; !* 透明背景 *!*/
-/*    color: #fff !important; !* 文字颜色保持白色 *!*/
-/*}*/
-
-/*!* 一级菜单悬停效果 - 应用于所有一级菜单项 *!*/
+/* 一级菜单悬停效果 - 应用于所有一级菜单项 */
 .ant-menu-submenu-title:hover,
 .ant-menu > .ant-menu-item:hover {
     /* 悬停时的背景色 */
@@ -100,11 +52,20 @@
     box-shadow: 0 0 8px rgba(14, 2, 2, 0.3);
 }
 
+
+
+
+
 /*!* 禁用二级菜单悬停效果 *!*/
 /*.ant-menu-sub .ant-menu-item:hover {*/
 /*    background: transparent !important; !* 透明背景 *!*/
 /*    box-shadow: none !important; !* 移除阴影 *!*/
 /*    border-left: none !important; !* 移除左边框 *!*/
+/*}*/
+/*!* 禁用二级菜单选中效果 *!*/
+/*.ant-menu-sub .ant-menu-item-selected {*/
+/*    background: transparent !important; !* 透明背景 *!*/
+/*    color: #fff !important; !* 文字颜色保持白色 *!*/
 /*}*/
 
 /*!* 响应式布局 - 在屏幕宽度小于768px时生效 *!*/
@@ -115,3 +76,16 @@
         z-index: 2; /* 设置层级，确保在内容之上 */
     }
 }
+
+
+/* 在你的 CSS 文件中添加 */
+/*:root {*/
+/*    --ant-primary-color: #1677ff!important;        !* 主色调 *!*/
+/*    --ant-primary-color-hover: #4096ff!important;  !* 主色调悬停 *!*/
+/*    --ant-primary-color-active: #0958d9!important; !* 主色调点击 *!*/
+/*}*/
+
+/*!* 只修改菜单组件的颜色 *!*/
+/*.ant-menu {*/
+/*    --ant-primary-color: #2563eb!important;        !* 菜单主色调（深蓝色） *!*/
+/*}*/

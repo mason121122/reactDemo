@@ -14,7 +14,6 @@ const iconToElement = (name) => React.createElement(Icon[name])
 
 // 处理菜单的数组
 const items = MenuConfig.map((icon) => {
-
     //没有子菜单
     const child = {
         key: icon.path,

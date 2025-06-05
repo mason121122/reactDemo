@@ -9,10 +9,10 @@ body {
 }
 
 /* 代码块样式 - 这些样式专门用于显示代码 */
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;  /* 使用等宽字体显示代码，确保代码对齐 */
-}
+/*code {*/
+/*  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',*/
+/*    monospace;  !* 使用等宽字体显示代码，确保代码对齐 *!*/
+/*}*/
 
 /* 主布局样式 */
 .ant-layout {
@@ -54,11 +54,11 @@ code {
 
 /* 确保弹出菜单背景不透明 */
 .ant-menu-submenu-popup {
-  background-color: #001529 !important;
+  background-color: #3d4d60 !important;
 }
 
-.ant-menu-submenu-popup .ant-menu-item:hover {
-  background-color: #657692 !important;
-  color: white !important;
-}
+/*.ant-menu-submenu-popup .ant-menu-item:hover {*/
+/*  background-color: #657692 !important;*/
+/*  color: white !important;*/
+/*}*/
 
