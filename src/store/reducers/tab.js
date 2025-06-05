@@ -6,13 +6,13 @@ const tabSlice = createSlice({
         isCollapsed: false,
         tabList: [
             {
-                path: '/',
+                path: '/home',
                 name: 'home',
                 label: '店铺概况',
             }
         ],
         currentMenu: {
-            path: '/',
+            path: '/home',
             name: 'home',
             label: '店铺概况',
         }
@@ -32,7 +32,7 @@ const tabSlice = createSlice({
             } else if (val.name === 'home') {
                 // 当点击home菜单时，更新currentMenu为home
                 state.currentMenu = {
-                    path: val.path || '/',
+                    path: val.path || '/home',
                     name: 'home',
                     label: '店铺概况',
                 };
@@ -41,7 +41,7 @@ const tabSlice = createSlice({
                 const homeIndex = state.tabList.findIndex(item => item.name === 'home');
                 if (homeIndex === -1) {
                     state.tabList.push({
-                        path: '/',
+                        path: '/home',
                         name: 'home',
                         label: '店铺概况',
                     });
@@ -71,7 +71,7 @@ const tabSlice = createSlice({
         setCurrentMenu: (state, {payload: val}) => {
             if(val.name === 'home') {
                 state.currentMenu = {
-                    path: val.path || '/',
+                    path: val.path || '/home',
                     name: 'home',
                     label: '店铺概况',
                 };

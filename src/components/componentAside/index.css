@@ -48,10 +48,10 @@
 }
 
 /* 菜单项和子菜单项的图标样式 */
-.ant-menu-item .anticon,
-.ant-menu-submenu-title .anticon {
+.ant-menu-item .anticon,.ant-menu-submenu-title .anticon {
     margin-right: auto !important; /* 使图标靠左对齐 */
 }
+
 
 /* 菜单项和子菜单项的文本样式 */
 .ant-menu-item span:not(.anticon),
@@ -71,11 +71,13 @@
 
 /* 子菜单内的菜单项样式 */
 .ant-menu-sub .ant-menu-item {
-    padding-left: 24px !important; /* 子菜单项缩进 */
+    /*padding-left: 24px !important; !* 子菜单项缩进 *!*/
+    padding-left: 36px !important; /* 增加左侧内边距，为图标留出空间 */
     margin: 2px 0 !important; /* 减小二级菜单项之间的间距 */
     font-size: 14px !important; /* 设置二级菜单的字体更小 */
     height: 36px !important; /* 减小二级菜单项的高度 */
     line-height: 36px !important; /* 与高度匹配 */
+    /*position: relative !important; !* 改为相对定位，便于内部绝对定位参考 *!*/
 }
 
 /* 选中菜单项样式 - 只应用于一级菜单 */

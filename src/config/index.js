@@ -20,11 +20,40 @@ export const routes = [
         url:'/mail/index'
     },
     {
-        path:'/user',
+        path:'/system',
         name:'user',
-        label:'用户管理',
-        icon:'UserOutlined',
-        url:'/user/index'
+        label:'系统管理',
+        icon:'TeamOutlined',
+        children:[
+            {
+                path:'/system/users/index',
+                name:'users',
+                label:'用户管理',
+                icon:'UserOutlined',
+                url:'/system/users/index',
+            },
+            {
+                path:'/system/permission/index',
+                name:'permission',
+                label:'权限管理',
+                icon:'',
+                url:'/system/permission/index',
+            },
+            {
+                path:'/system/role/index',
+                name:'role',
+                label:'角色管理',
+                icon:'',
+                url:'/system/role/index',
+            },
+            {
+                path:'/system/log/index',
+                name:'log',
+                label:'日志管理',
+                icon:'',
+                url:'/system/log/index',
+            }
+        ]
     },
     {
         path:'/reception',
@@ -58,14 +87,14 @@ export const routes = [
                 path:'/inventory/pageOne',
                 name:'inventoryPageOne',
                 label:'页面1',
-                icon:'SettingOutlined',
+                icon:'',
                 url:'/inventory/pageOne',
             },
             {
                 path:'/inventory/pageTwo',
                 name:'inventoryPageTwo',
                 label:'页面2',
-                icon:'SettingOutlined',
+                icon:'',
                 url:'/inventory/pageTwo',
             }
         ]
@@ -96,7 +125,7 @@ export const ENDPOINTS = {
     REFRESH_TOKEN: '/auth/refresh'
   },
   
-  // 用户管理相关端点 - 对应路由中的'/user'
+  // 用户管理相关端点 - 对应路由中的'/system'
   USERS: {
     BASE: '/users',
     PROFILE: '/users/profile',

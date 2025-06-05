@@ -24,7 +24,7 @@ export default {
                             url: '/mail/index'
                         },
                         {
-                            path: '/user',
+                            path: '/system',
                             name: 'user',
                             label: '用户管理',
                             icon: 'UserOutlined',

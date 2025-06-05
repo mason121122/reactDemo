@@ -26,6 +26,7 @@ const items = MenuConfig.map((icon) => {
         child.children = icon.children.map((item) => {
             return {
                 key: item.path,
+                icon: item.icon ? iconToElement(item.icon) : null,
                 label: item.label,
             }
         })
@@ -42,7 +43,6 @@ const ComponentAside = ({collapsed}) => {
     const dispatch = useDispatch();
     // 添加数据到store
     const setTabList =(val)=>{
-        console.log("setTabList:",val)
         dispatch(selectMenuList(val))
     }
 
@@ -78,7 +78,6 @@ const ComponentAside = ({collapsed}) => {
         }
     }
 
-    console.log(collapsed);
     return (
         // <Sider trigger={null} collapsible collapsed={collapsed}>
         <Sider trigger={null} collapsed={collapsed} width="250px">

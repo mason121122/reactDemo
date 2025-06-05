@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Button, Form, Input, Table, Tag, Popconfirm, Modal,InputNumber} from "antd";
-import '../user/user.css'
+import './user.css'
 // import API from "../../api";
 
 const Index = () => {

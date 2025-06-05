@@ -134,7 +134,7 @@ const CommonTag = (props) => {
     // 判断两个路径是否匹配，处理/和/home特殊情况
     const isPathMatch = (path1, path2) => {
         // 处理首页特殊情况
-        if ((path1 === '/' || path1 === '/home') && (path2 === '/' || path2 === '/home')) {
+        if ((path1 === '/home') && (path2 === '/home')) {
             return true;
         }
         return path1 === path2;
