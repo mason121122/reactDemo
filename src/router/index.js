@@ -10,36 +10,40 @@ import InventoryPageTwo from "../pages/inventory/pageTwo";
 import Login from "../pages/login";
 
 const isAuthenticated = () => {
-    return localStorage.getItem('isLoggedIn') === 'true';
+    return localStorage.getItem('token') !== null;
 };
 
 const PrivateRoute = ({ element }) => {
     return isAuthenticated() ? element : <Navigate to="/login" replace />;
 };
 
+const PublicRoute = ({ element }) => {
+    return !isAuthenticated() ? element : <Navigate to="/home" replace />;
+};
+
 const routes = [
     {
         path: "/",
-        element: <Navigate to="/login" replace={true} /> // 根路径重定向到登录页
+        element: <Navigate to="/login" replace={true} />
     },
     {
         path: "login",
-        element: <Login />
+        element: <PublicRoute element={<Login />} />
     },
     {
-        path: "/", // 主布局路由（包含左侧菜单和顶部导航）
-        element: <Main />,
+        path: "/",
+        element: <PrivateRoute element={<Main />} />,
         children: [
             {
-                path: "home", // 访问路径：/home
-                element: <PrivateRoute element={<Home />} />
+                path: "home",
+                element: <Home />
             },
             {
-                path: "mail", // 访问路径：/mail
+                path: "mail",
                 element: <Mail />
             },
             {
-                path: "system", // 系统管理模块父路由（访问路径前缀：/system）
+                path: "system",
                 children: [
                     {
                         path: "users/index",
@@ -60,7 +64,7 @@ const routes = [
                 ]
             },
             {
-                path: "reception", // 订单管理父路由
+                path: "reception",
                 children: [
                     {
                         path: "pageOne/index",

@@ -3,7 +3,7 @@ import http from './axios'
 
 export const usersPageQuery = (values) => {
     return http.request({
-        url: '/users/pageQuery',
+        url: '/users/pageQueryUser',
         method: 'get',
         params: {
             username:values.username,

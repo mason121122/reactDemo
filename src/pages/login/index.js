@@ -1,27 +1,34 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { useNavigate,Navigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import http from '../../api/axios';
 import './index.css';
 
 const Login = () => {
   const navigate = useNavigate();
-  // 在登入状态下需要跳转到home
-  // if(localStorage.getItem('token')){
-  //     return <Navigate to="/home" replace/>
-  // }
 
-  const handleSubmit = (val) => {
-    // 模拟登录成功
-    localStorage.setItem('isLoggedIn', 'true');
-    navigate('/home');
-    // getMenu(val).then(({data}) => {
-    //   console.log(data)
-    //   localStorage.setItem('token',data.token);
-    //   navigate('/home');
-    // })
+  const handleSubmit = async (values) => {
+    try {
+      const response = await http.request({
+        url: '/security/loginpost',
+        method: 'post',
+        data: {
+          username: values.username,
+          password: values.password
+        }
+      });
+      
+      if (response.status === 200) {
+        // 存储token
+        localStorage.setItem('token', response.data);
+        message.success('登录成功');
+        navigate('/home');
+      }
+    } catch (error) {
+      console.error('登录失败:', error);
+    }
   };
-
 
   return (
     <div className="login-page">

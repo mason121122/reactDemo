@@ -54,7 +54,9 @@ body {
 
 /* 确保弹出菜单背景不透明 */
 .ant-menu-submenu-popup {
-  background-color: #3d4d60 !important;
+  background-color: transparent!important;
+  padding-left: 10px !important;
+
 }
 
 /*.ant-menu-submenu-popup .ant-menu-item:hover {*/

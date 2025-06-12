@@ -35,6 +35,8 @@ const Index = () => {
     });
     // 编辑时的初始值
     const [initialValues, setInitialValues] = useState({});
+    // 加载状态
+    const [loading, setLoading] = useState(false);
 
     // 新增、编辑点击事件处理函数
     const handleClick = (type, rowData = {}) => {
@@ -61,19 +63,11 @@ const Index = () => {
     const handleSearch = (values) => {
         const newListData = { ...listData, ...values, pageIndex: 1 };
         setListData(newListData);
-        setPagination({
-            ...pagination,
-            current: 1,
-        });
     };
 
     // 重置按钮逻辑
     const resetSearch = () => {
         setListData(INITIAL_PARAMS);
-        setPagination({
-            ...pagination,
-            current: INITIAL_PARAMS.pageIndex,
-        });
     };
 
     // 删除用户处理函数
@@ -82,7 +76,7 @@ const Index = () => {
             await asyDelUser(rowData.id);
             await getTableData({ ...listData, pageIndex: 1 });
         } catch (error) {
-            errorMsg('删除用户并更新数据失败，请重试');
+            console.error('删除用户失败:', error);
         }
     };
 
@@ -96,13 +90,17 @@ const Index = () => {
             ...values,
             status: statusMap[values.status] || values.status
         };
-        if (modalType === 0) {
-            await addUserTab(values);
-        } else {
-            await editUserTab({ ...newValues, id: initialValues.id,version: initialValues.version });
+        try {
+            if (modalType === 0) {
+                await addUserTab(newValues);
+            } else {
+                await editUserTab({ ...newValues, id: initialValues.id, version: initialValues.version });
+            }
+            await getTableData({ ...listData, pageIndex: 1 });
+            setIsModalOpen(false);
+        } catch (error) {
+            console.error('保存用户失败:', error);
         }
-        await getTableData({ ...listData, pageIndex: 1 });
-        setIsModalOpen(false);
     };
 
     // 弹窗取消处理函数
@@ -115,14 +113,14 @@ const Index = () => {
     const asyDelUser = async (id) => {
         try {
             const response = await delUser(id);
-            if (response.data.status === 200) {
+            if (response.status === 200) {
                 successMsg('删除成功');
             } else {
-                errorMsg(`请求失败: ${response.data.status} ${response.data.message}`);
-                throw new Error('删除用户请求失败');
+                errorMsg(response.message || '删除失败');
+                throw new Error(response.message || '删除失败');
             }
         } catch (error) {
-            errorMsg('请求失败');
+            errorMsg(error.message || '删除失败');
             throw error;
         }
     };
@@ -131,13 +129,14 @@ const Index = () => {
     const addUserTab = async (values) => {
         try {
             const response = await addUser(values);
-            if (response.data.status === 200) {
-                successMsg('成功');
+            if (response.status === 200) {
+                successMsg('新增成功');
             } else {
-                errorMsg(`请求失败: ${response.data.status} ${response.data.message}`);
+                errorMsg(response.message || '新增失败');
+                throw new Error(response.message || '新增失败');
             }
         } catch (error) {
-            errorMsg('请求失败');
+            errorMsg(error.message || '新增失败');
             throw error;
         }
     };
@@ -146,30 +145,40 @@ const Index = () => {
     const editUserTab = async (values) => {
         try {
             const response = await editUser(values);
-            if (response.data.status === 200) {
+            if (response.status === 200) {
                 successMsg('编辑成功');
             } else {
-                errorMsg(`请求失败: ${response.data.status} ${response.data.message}`);
+                errorMsg(response.message || '编辑失败');
+                throw new Error(response.message || '编辑失败');
             }
         } catch (error) {
-            errorMsg('请求失败');
+            errorMsg(error.message || '编辑失败');
             throw error;
         }
     };
 
     // 获取表格数据函数
     const getTableData = async (values) => {
+        setLoading(true);
         try {
             const response = await usersPageQuery(values);
-            console.log('请求成功', response.data.data);
-            setTableData(response.data.data.list || []);
-            setPagination({
-                ...pagination,
-                current: values.pageIndex,
-                total: response.data.data.total,
-            });
+            if (response.status === 200 && response.data) {
+                setTableData(response.data.list || []);
+                setPagination({
+                    ...pagination,
+                    current: values.pageIndex,
+                    total: response.data.total || 0,
+                });
+            } else {
+                errorMsg(response.message || '获取数据失败');
+                setTableData([]);
+            }
         } catch (error) {
-            errorMsg(`请求失败: ${error?.response?.data?.status || '未知错误'} ${error?.response?.data?.message || ''}`);
+            console.error('获取用户列表失败:', error);
+            errorMsg(error.message || '获取数据失败');
+            setTableData([]);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -181,18 +190,12 @@ const Index = () => {
             pageSize: newPagination.pageSize,
         };
         setListData(newListData);
-        setPagination(newPagination);
     };
 
     // 监听 listData 变化，更新表格数据
     useEffect(() => {
         getTableData(listData);
     }, [listData]);
-
-    // 组件挂载时获取数据
-    useEffect(() => {
-        getTableData(listData);
-    }, []);
 
     // 获取表格列配置
     const columns = getUserColumns(handleClick, deleteUser);
@@ -212,6 +215,7 @@ const Index = () => {
                         rowKey={'id'}
                         pagination={pagination}
                         onChange={handleTableChange}
+                        loading={loading}
                     />
                     <UserEditModal
                         key={`${modalType}-${JSON.stringify(initialValues)}`}
